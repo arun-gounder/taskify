@@ -10,5 +10,5 @@ import { RouterOutlet } from '@angular/router';
   templateUrl: './dashboard-page.component.html',
 })
 export class DashboardPageComponent {
-
+  
 }

@@ -1,29 +1,36 @@
-<div class="flex flex-col gap-12 h-full left-0 sticky top-0 w-60">
-    <div class="bg-[#0f172a] flex flex-col gap-12 h-full p-5 w-60">
-        <div class="flex justify-between items-center ">
-            <img class="h-12 rounded-full" src="https://img.freepik.com/free-vector/bird-colorful-logo-gradient-vector_343694-1365.jpg?size=338&ext=jpg&ga=GA1.1.1395880969.1709355600&semt=sph">
+<div class="bg-[#0f172a] h-full bottom-0 top-0 p-4 w-60 group text-white flex flex-col gap-10 items-center transition-all duration-200"
+    [class.w-2]="!is_sidebar">
+    <div class="flex h-8 w-8 rounded-full bg-blue-600 top-16 -right-3 absolute justify-center items-center"
+        [class.rotate-180]="!is_sidebar" (click)="is_sidebar = !is_sidebar">
+        <i class='bx bx-chevron-left text-lg'></i>
+    </div>
+    <div *ngIf="is_sidebar" class="flex items-center justify-center gap-2 text-lg">
+        <i class='bx bxl-graphql cursor-pointer text-2xl'></i>
+        <h1 class="text-xl">Taskify</h1>
+    </div>
+    <div *ngIf="is_sidebar" class="flex flex-col justify-center gap-2 w-full">
+        <div class="flex gap-2 items-center w-full hover:bg-white/10 p-2 rounded-md">
+            <i class='bx bxs-dashboard text-2xl'></i>
             <div>
-                <i class='bx bx-user-circle cursor-pointer text-white text-2xl'></i>
+                <h2 class="text-sm font-semibold">Project Name</h2>
+                <p class="text-[10px]">Software Developement</p>
             </div>
         </div>
-        <div class="flex flex-col gap-8 items-center justify-center">
-            <div class="flex justify-center ">
-                <img class="h-24 rounded-full" src="https://pinnacle.works/wp-content/uploads/2022/06/dummy-image.jpg">
-            </div>
-            <div class="flex flex-col gap-1 items-center justify-center ">
-                <h1 class="font-bold font-sans ordinal text-sm text-white"> ARUN </h1>
-                <p class="ordinal text-xs text-blue-100"> ARUN </p>
-            </div>
+        <div class="flex gap-2 items-center hover:bg-white/10 p-2 rounded-md">
+            <i class='bx bxl-codepen text-2xl'></i>
+            <h2 class="text-md font-semibold">Board</h2>
         </div>
-        <div class="flex flex-col gap-5">
-            <h1 class="font-semibold text-center font-sans text-blue-600 text-sm">Welcome to Taskify</h1>
-            <div class="flex flex-col gap-3">
-                <p class='bg-transparent text-white'
-                    class="cursor-pointer font-sans hover:bg-slate-800 ordinal p-2 rounded-lg text-sm text-white"
-                    routerLink="/dashboard"> <i class='bx bxs-file-blank mr-2 text-lg text-white'></i> Dashboard </p>
-                <p class='bg-transparent text-white'
-                    class="cursor-pointer font-sans hover:bg-slate-800 ordinal p-2 rounded-lg text-sm text-white"
-                    routerLink="/dashboard/boards"> <i class='bx bxs-file-blank mr-2 text-lg text-white'></i> Boards </p>
+        <div class="flex flex-col gap-2">
+            <div *ngFor="let item of menu_items; let i = index">
+                <div class="flex items-center justify-between  cursor-pointer hover:bg-white/10 p-2 rounded-md"
+                    (click)="toggleItem(i)">
+                    <span class="text-md font-semibold">{{ item.title }}</span>
+                    <i class='bx bx-chevron-down' [class.rotate-180]="expanded_index === i"></i>
+                </div>
+                <div *ngIf="expanded_index === i" class="flex items-center gap-2 p-4">
+                    <i [class]="item.icon" class="text-md"></i>
+                    {{ item.content }}
+                </div>
             </div>
         </div>
     </div>
