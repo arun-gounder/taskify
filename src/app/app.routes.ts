@@ -8,9 +8,7 @@ export const routes: Routes = [
 
 
     { path: 'sign-in', component: LoginPageComponent },
-    { path: '', pathMatch: 'full', redirectTo: 'dashboard-layout' },
-    { path: 'dashboard-layout', component: DashboardLayoutComponent,children:[
-        { path: 'dashboard', component: DashboardPageComponent },
+    { path: 'dashboard', component: DashboardPageComponent,children:[
         { path: 'boards', component: BoardsPageComponent }
     ] },
 
