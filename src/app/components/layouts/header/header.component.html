@@ -21,6 +21,10 @@
                 placeholder="Search">
         </div>
         <p><i class='bx bxs-bell text-xl'></i></p>
-        <p><i class='bx bx-user-circle text-xl'></i></p>
+        <p (click)="modal= !modal"><i class='bx bx-user-circle text-xl'></i></p>
     </div>
 </header>
+
+<div *ngIf="modal">
+    <app-profile></app-profile>
+</div>
