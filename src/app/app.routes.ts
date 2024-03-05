@@ -10,7 +10,7 @@ export const routes: Routes = [
     { path: '', pathMatch: 'full', redirectTo: 'sign-in' },
     {
         path: 'dashboard', component: DashboardPageComponent, children: [
-            { path: 'boards', component: BoardsPageComponent }
+            { path: 'projects', component: BoardsPageComponent }
         ]
     },
 
