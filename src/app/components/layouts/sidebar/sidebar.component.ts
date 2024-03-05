@@ -5,11 +5,14 @@ import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-sidebar',
   standalone: true,
-  imports: [RouterLink, NgFor, NgIf],
+  imports: [RouterLink, NgFor, NgIf, RouterLink],
   templateUrl: './sidebar.component.html'
 })
 export class SidebarComponent {
   is_sidebar = true;
+  handle_sidebar(){
+    this.is_sidebar = !this.is_sidebar
+  }
   menu_items = [
     {
       title: 'Planning',

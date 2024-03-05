@@ -1,10 +1,10 @@
-<div class="bg-[#0f172a] h-full bottom-0 top-0 p-4 w-60 group text-white flex flex-col gap-10 items-center transition-all duration-200"
-    [class.w-2]="!is_sidebar">
+<div class="bg-[#0f172a] h-full bottom-0 top-0 p-4 w-2 group text-white flex flex-col gap-10 items-center transition-all duration-200"
+    [class.w-60]="is_sidebar">
     <div class="flex h-8 w-8 rounded-full bg-blue-600 top-16 -right-3 absolute justify-center items-center"
-        [class.rotate-180]="!is_sidebar" (click)="is_sidebar = !is_sidebar">
+        [class.rotate-180]="!is_sidebar" (click)="handle_sidebar()">
         <i class='bx bx-chevron-left text-lg'></i>
     </div>
-    <div *ngIf="is_sidebar" class="flex items-center justify-center gap-2 text-lg">
+    <div *ngIf="is_sidebar" class="flex items-center justify-center gap-2 text-lg cursor-pointer" routerLink="/dashboard">
         <i class='bx bxl-graphql cursor-pointer text-2xl'></i>
         <h1 class="text-xl">Taskify</h1>
     </div>
@@ -16,7 +16,7 @@
                 <p class="text-[10px]">Software Developement</p>
             </div>
         </div>
-        <div class="flex gap-2 items-center hover:bg-white/10 p-2 rounded-md">
+        <div class="flex gap-2 items-center hover:bg-white/10 p-2 rounded-md cursor-pointer" routerLink="/dashboard/boards">
             <i class='bx bxl-codepen text-2xl'></i>
             <h2 class="text-md font-semibold">Board</h2>
         </div>
