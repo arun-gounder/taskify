@@ -15,6 +15,7 @@ import { MatInputModule } from '@angular/material/input';
 /**
  * @title Drag&Drop connected sorting
  */
+
 @Component({
   selector: 'app-boards-page',
   templateUrl: './boards-page.component.html',
