@@ -11,5 +11,12 @@ import { CommonModule } from '@angular/common';
 })
 export class HeaderComponent {
   open_modal = true;
+  your_work = true;
+  project = true;
+  filters = true;
+  dashboard = true;
+  teams = true;
+  plans = true;
+  apps = true;
   constructor() { }
 }
