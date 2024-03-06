@@ -6,12 +6,6 @@ import {
   CdkDrag,
   CdkDropList,
 } from '@angular/cdk/drag-drop';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
-import { MatCardModule } from '@angular/material/card';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
 /**
  * @title Drag&Drop connected sorting
  */
@@ -21,7 +15,7 @@ import { MatInputModule } from '@angular/material/input';
   templateUrl: './boards-page.component.html',
   styleUrl: './boards-page.component.css',
   standalone: true,
-  imports: [CdkDropList, CdkDrag, MatToolbarModule, MatButtonModule, MatIconModule, MatCardModule, MatFormFieldModule, MatInputModule],
+  imports: [CdkDropList, CdkDrag,],
 })
 export class BoardsPageComponent {
 
