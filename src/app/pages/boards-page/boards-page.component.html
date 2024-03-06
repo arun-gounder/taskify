@@ -1,1 +1,45 @@
-board
+<!-- <mat-toolbar>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <span>My App</span>
+    <span class="example-spacer"></span>
+    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+        <mat-icon>favorite</mat-icon>
+    </button>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+        <mat-icon>share</mat-icon>
+    </button>
+</mat-toolbar> -->
+
+<div class="example-container p-5">
+    <h2>To do</h2>
+    <div cdkDropList #todoList="cdkDropList" [cdkDropListData]="todo" [cdkDropListConnectedTo]="[doneList]"
+        class="example-list" (cdkDropListDropped)="drop($event)">
+        @for (item of todo; track item) {
+        <div class="example-box" cdkDrag>{{item}}</div>
+        }
+    </div>
+</div>
+
+<div class="example-container">
+    <h2>Done</h2>
+    <div cdkDropList #doneList="cdkDropList" [cdkDropListData]="done" [cdkDropListConnectedTo]="[todoList]"
+        class="example-list" (cdkDropListDropped)="drop($event)">
+        @for (item of done; track item) {
+        <div class="example-box" cdkDrag>{{item}}</div>
+        }
+    </div>
+</div>
+
+
+<!-- <mat-card class="example-card flex justify-center">
+    <form class=" h-[200px]">
+        <mat-form-field >
+            <mat-label>Outline form field</mat-label>
+            <input matInput placeholder="Placeholder">
+            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            <mat-hint>Hint</mat-hint>
+        </mat-form-field>
+    </form>
+</mat-card> -->
