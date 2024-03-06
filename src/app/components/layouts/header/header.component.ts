@@ -10,7 +10,6 @@ import { CommonModule } from '@angular/common';
   templateUrl: './header.component.html'
 })
 export class HeaderComponent {
-  show_sidebar = true;
-  modal=true
+  open_modal = true;
   constructor() { }
 }
