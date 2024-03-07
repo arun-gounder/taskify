@@ -1,12 +1,12 @@
 <header class="bg-white border-b border-gray-200 flex justify-between items-center py-3 px-6 sticky top-0 z-10 w-full">
     <div class="container flex gap-3 items-center text-md font-medium">
-        <p class="whitespace-nowrap flex items-center cursor-pointer hover:bg-gray-200 hover:px-1 p-1 rounded-sm" (click)="your_work =! your_work">Your work<i class='bx bx-chevron-down text-base'></i></p>
-        <p class="flex items-center cursor-pointer hover:bg-gray-200 hover:px-1 p-1 rounded-sm" routerLink="/dashboard/projects" (click)="project=!project">Projects<i class='bx bx-chevron-down text-base'></i></p>
-        <p class="flex items-center cursor-pointer hover:bg-gray-200 hover:px-1 p-1 rounded-sm" (click)="filters=!filters">Filters<i class='bx bx-chevron-down text-base'></i></p>
-        <p class="flex items-center cursor-pointer hover:bg-gray-200 hover:px-1 p-1 rounded-sm" (click)="dashboard=!dashboard">Dashboards<i class='bx bx-chevron-down text-base'></i></p>
-        <p class="flex items-center cursor-pointer hover:bg-gray-200 hover:px-1 p-1 rounded-sm" (click)="teams=!teams">Teams<i class='bx bx-chevron-down text-base'></i></p>
-        <p class="flex items-center cursor-pointer hover:bg-gray-200 hover:px-1 p-1 rounded-sm" (click)="plans=!plans">Plans<i class='bx bx-chevron-down text-base'></i></p>
-        <p class="flex items-center cursor-pointer hover:bg-gray-200 hover:px-1 p-1 rounded-sm" (click)="apps=!apps">Apps<i class='bx bx-chevron-down text-base'></i></p>
+        <p class="whitespace-nowrap flex items-center cursor-pointer hover:bg-gray-200 hover:px-1 p-1 rounded-sm">Your work<i class='bx bx-chevron-down text-base'></i></p>
+        <p class="flex items-center cursor-pointer hover:bg-gray-200 hover:px-1 p-1 rounded-sm" routerLink="/dashboard/projects">Projects<i class='bx bx-chevron-down text-base'></i></p>
+        <p class="flex items-center cursor-pointer hover:bg-gray-200 hover:px-1 p-1 rounded-sm">Filters<i class='bx bx-chevron-down text-base'></i></p>
+        <p class="flex items-center cursor-pointer hover:bg-gray-200 hover:px-1 p-1 rounded-sm">Dashboards<i class='bx bx-chevron-down text-base'></i></p>
+        <p class="flex items-center cursor-pointer hover:bg-gray-200 hover:px-1 p-1 rounded-sm">Teams<i class='bx bx-chevron-down text-base'></i></p>
+        <p class="flex items-center cursor-pointer hover:bg-gray-200 hover:px-1 p-1 rounded-sm">Plans<i class='bx bx-chevron-down text-base'></i></p>
+        <p class="flex items-center cursor-pointer hover:bg-gray-200 hover:px-1 p-1 rounded-sm">Apps<i class='bx bx-chevron-down text-base'></i></p>
         <button class="bg-blue-600 hover:bg-blue-800 text-white font-semibold py-1 px-2 rounded">Create</button>
     </div>
     <div class="flex items-center gap-1">
@@ -20,25 +20,4 @@
 </header>
 <div class="absolute flex justify-end p-2 right-5">
     <app-profile *ngIf="!open_modal"></app-profile>
-</div>
-<div class="absolute left-[20.5%] flex justify-center p-2 bg-white h-96 w-60 z-10" *ngIf="!your_work" >
-    <p>Your work</p>
-</div>
-<div class="absolute left-[29%] flex justify-center p-2 bg-white h-96 w-60 z-10" *ngIf="!project" >
-    <p>Projects</p>
-</div>
-<div class="absolute left-[36.2%] flex justify-center p-2 bg-white h-96 w-60 z-10" *ngIf="!filters" >
-    <p>Filters</p>
-</div>
-<div class="absolute left-[42.5%] flex justify-center p-2 bg-white h-96 w-60 z-10" *ngIf="!dashboard" >
-    <p>Dashboards</p>
-</div>
-<div class="absolute left-[52%] flex justify-center p-2 bg-white h-96 w-60 z-10" *ngIf="!teams" >
-    <p>Teams</p>
-</div>
-<div class="absolute left-[58.4%] flex justify-center p-2 bg-white h-96 w-60 z-10" *ngIf="!plans" >
-    <p>Plans</p>
-</div>
-<div class="absolute left-[64%] flex justify-center p-2 bg-white h-96 w-60 z-10" *ngIf="!apps" >
-    <p>Apps</p>
 </div>
