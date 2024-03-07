@@ -5,8 +5,10 @@ import {
   transferArrayItem,
   CdkDrag,
   CdkDropList,
+  CdkDropListGroup
 } from '@angular/cdk/drag-drop';
 import { AddTicketModalComponent } from '../../components/layouts/add-ticket-modal/add-ticket-modal.component';
+import { CommonModule } from '@angular/common';
 /**
  * @title Drag&Drop connected sorting
  */
@@ -16,25 +18,60 @@ import { AddTicketModalComponent } from '../../components/layouts/add-ticket-mod
   templateUrl: './boards-page.component.html',
   styleUrl: './boards-page.component.css',
   standalone: true,
-  imports: [CdkDropList, CdkDrag, AddTicketModalComponent],
+  imports: [CdkDropList, CdkDrag, AddTicketModalComponent, CommonModule, CdkDropListGroup],
 })
 export class BoardsPageComponent {
 
-  board_lists = {
-    todo: ['Get to work', 'Pick up groceries', 'Go home', 'Fall asleep', 'Arun'],
-    progress: ['Get to work', 'Pick up groceries', 'Go home', 'Fall asleep', 'Arun'],
-    done: ['Get up', 'Brush teeth', 'Take a shower', 'Check e-mail', 'Walk dog'],
+  board_lists: any = {
+    todo: [
+      { id: 1, title: "Tam" },
+      { id: 2, title: "Ermanno" },
+      { id: 3, title: "Port" },
+      { id: 4, title: "Adrienne" },
+      { id: 5, title: "Jeanie" },
+      { id: 6, title: "Valentina" },
+    ],
+    progress: [
+      { id: 1, title: "Tam" },
+      { id: 2, title: "Ermanno" },
+      { id: 3, title: "Port" },
+      { id: 4, title: "Adrienne" },
+    ],
+    done: [
+      { id: 1, title: "Tam" },
+      { id: 2, title: "Ermanno" },
+      { id: 3, title: "Port" },
+    ]
   }
 
-  // todo = ['Get to work', 'Pick up groceries', 'Go home', 'Fall asleep', 'Arun'];
-  // progress = ['Get to work', 'Pick up groceries', 'Go home', 'Fall asleep', 'Arun'];
-  // done = ['Get up', 'Brush teeth', 'Take a shower', 'Check e-mail', 'Walk dog'];
+  tickets = [
+    { id: 1, title: "Tam", status: "Todo" },
+    { id: 2, title: "Ermanno", status: "Done" },
+    { id: 3, title: "Port", status: "Done" },
+    { id: 4, title: "Adrienne", status: "Done" },
+    { id: 5, title: "Jeanie", status: "Progress" },
+    { id: 6, title: "Valentina", status: "Todo" },
+    { id: 7, title: "Newton", status: "Progress" },
+    { id: 8, title: "Asa", status: "Todo" },
+    { id: 9, title: "Tildy", status: "Progress" },
+    { id: 10, title: "Dody", status: "Progress" },
+    { id: 11, title: "Scot", status: "Todo" },
+    { id: 12, title: "Hadria", status: "Progress" },
+    { id: 13, title: "George", status: "Done" },
+    { id: 14, title: "Peirce", status: "Progress" },
+    { id: 15, title: "Felita", status: "Todo" },
+    { id: 16, title: "Daven", status: "Todo" },
+    { id: 17, title: "Del", status: "Done" },
+    { id: 18, title: "Audry", status: "Todo" },
+    { id: 19, title: "Laurice", status: "Done" },
+    { id: 20, title: "Averil", status: "Todo" }
+  ]
 
-  add_ticket(title: string) {
-    this.board_lists.todo.push(title)
+  add_ticket(title: any) {
+    this.board_lists.todo.push({ id: 20, title: "Averil"})
   }
 
-  drop(event: CdkDragDrop<string[]>) {
+  drop(event: CdkDragDrop<any[]>) {
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     } else {

@@ -1,32 +1,69 @@
-<div class="flex gap-2 p-5 w-full">
+<div class="flex gap-2 p-5 w-full" cdkDropListGroup>
     <div class="example-container w-[300px]">
         <h2 class="font-semibold">To do</h2>
-        <div cdkDropList #todoList="cdkDropList" [cdkDropListData]="board_lists.todo" [cdkDropListConnectedTo]="[doneList]"
-            class="example-list bg-black/5 p-4" (cdkDropListDropped)="drop($event)">
+        <div cdkDropList [cdkDropListData]="board_lists.todo" class="example-list bg-black/5 p-4"
+            (cdkDropListDropped)="drop($event)">
             @for (item of board_lists.todo; track item) {
-            <div class="example-box p-5 shadow-md bg-white m-2" cdkDrag>{{item}}</div>
+            <div class="example-box p-5 shadow-md bg-white m-2 hover:cursor-grab active:cursor-grabbing" cdkDrag>
+                <p class="font-semibold">{{item.title}}</p>
+            </div>
             }
         </div>
     </div>
     <div class="example-container w-[300px]">
         <h2 class="font-semibold">Progress</h2>
-        <div cdkDropList #doneList="cdkDropList" [cdkDropListData]="board_lists.progress" [cdkDropListConnectedTo]="[progressList]"
-            class="example-list bg-black/5 p-4" (cdkDropListDropped)="drop($event)">
+        <div cdkDropList [cdkDropListData]="board_lists.progress" class="example-list bg-black/5 p-4"
+            (cdkDropListDropped)="drop($event)">
             @for (item of board_lists.progress; track item) {
-            <div class="example-box p-5 shadow-md bg-white m-2" cdkDrag>{{item}}</div>
+            <div class="example-box p-5 shadow-md bg-white m-2" cdkDrag>
+                <p class="font-semibold">{{item.title}}</p>
+            </div>
             }
         </div>
     </div>
     <div class="example-container w-[300px]">
         <h2 class="font-semibold">Done</h2>
-        <div cdkDropList #progressList="cdkDropList" [cdkDropListData]="board_lists.done" [cdkDropListConnectedTo]="[todoList]"
-            class="example-list bg-black/5 p-4" (cdkDropListDropped)="drop($event)">
+        <div cdkDropList [cdkDropListData]="board_lists.done" class="example-list bg-black/5 p-4"
+            (cdkDropListDropped)="drop($event)">
             @for (item of board_lists.done; track item) {
-            <div class="example-box p-5 shadow-md bg-white m-2" cdkDrag>{{item}}</div>
+            <div class="example-box p-5 shadow-md bg-white m-2" cdkDrag>
+                <p class="font-semibold">{{item.title}}</p>
+            </div>
             }
         </div>
     </div>
+    <button class="bg-blue-600 hover:bg-blue-800 text-white font-semibold py-1 px-2 rounded h-max"
+        (click)="add_ticket('gounder')">Add Ticket</button>
 </div>
-<button class="bg-blue-600 hover:bg-blue-800 text-white font-semibold py-1 px-2 rounded" (click)="add_ticket('gounder')">Add Ticket</button>
 
+
+<div *ngFor="let item of board_lists | keyvalue">
+    Key: <b>{{item.key}}</b> and Value: <b>{{item.value}}</b>
+
+</div>
+
+<!-- <div class="flex gap-2 p-5 w-full" cdkDropListGroup>
+    <div *ngFor="let item of board_lists | keyvalue" class="example-container w-[300px]">
+        <h2 class="font-semibold">{{item.key}}</h2>
+        <div cdkDropList [cdkDropListData]="item.value" class="example-list bg-black/5 p-4"
+        > -->
+        <!-- (cdkDropListDropped)="drop($event)" -->
+            <!-- @for (item of item.value; track item) {
+            <div class="example-box p-5 shadow-md bg-white m-2" cdkDrag>
+                <p class="font-semibold">{{item.title}}</p>
+            </div>
+            } -->
+            <!-- <p>{{item.value}}</p>
+        </div>
+    </div>
+</div> -->
 <!-- <app-add-ticket-modal></app-add-ticket-modal> -->
+
+<!-- <button (click)="openDialog()">Open a draggable dialog</button>
+
+<ng-template>
+  <div class="example-dialog-content" cdkDrag cdkDragRootElement=".cdk-overlay-pane">
+    Drag the dialog around!
+  </div>
+</ng-template> -->
+
