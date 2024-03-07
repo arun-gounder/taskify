@@ -12,10 +12,23 @@ import { NavModalComponent } from '../nav-modal/nav-modal.component';
 })
 export class HeaderComponent {
 
-
   open_modal = true;
+  isDropdownOpen = true;
   
   constructor() { }
 
-  isDropdownOpen = false;
+  selectedNavItem: string = '';
+  nav_items = ["Your Work","Projects","Filters","Dashboards","Teams","Plans","Apps"] 
+
+  setSelectedNavItem(item: string): void {
+    this.selectedNavItem = item;
+    if(this.isDropdownOpen==true){
+      this.isDropdownOpen = false
+    }
+  }
+
+  close_nav_modal(){
+    this.isDropdownOpen = true
+  }
+
 }
