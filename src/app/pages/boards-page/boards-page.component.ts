@@ -22,7 +22,7 @@ import { CommonModule } from '@angular/common';
 })
 export class BoardsPageComponent {
 
-  board_lists: any = {
+  board_lists: { [key: string]: { id: number, title: string }[] } = {
     todo: [
       { id: 1, title: "Tam" },
       { id: 2, title: "Ermanno" },
@@ -67,11 +67,15 @@ export class BoardsPageComponent {
     { id: 20, title: "Averil", status: "Todo" }
   ]
 
-  add_ticket(title: any) {
-    this.board_lists.todo.push({ id: 20, title: "Averil"})
+  // add_ticket(title: any) {
+  //   this.board_lists.todo.push({ id: 20, title: "Averil" })
+  // }
+
+  add_column(){
+    
   }
 
-  drop(event: CdkDragDrop<any[]>) {
+  drop(event: any) {
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     } else {
