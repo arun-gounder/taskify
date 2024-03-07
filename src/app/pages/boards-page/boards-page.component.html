@@ -1,45 +1,32 @@
-<!-- <mat-toolbar>
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-        <mat-icon>menu</mat-icon>
-    </button>
-    <span>My App</span>
-    <span class="example-spacer"></span>
-    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-        <mat-icon>favorite</mat-icon>
-    </button>
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-        <mat-icon>share</mat-icon>
-    </button>
-</mat-toolbar> -->
-
-<div class="example-container p-5">
-    <h2>To do</h2>
-    <div cdkDropList #todoList="cdkDropList" [cdkDropListData]="todo" [cdkDropListConnectedTo]="[doneList]"
-        class="example-list" (cdkDropListDropped)="drop($event)">
-        @for (item of todo; track item) {
-        <div class="example-box" cdkDrag>{{item}}</div>
-        }
+<div class="flex gap-2 p-5 w-full">
+    <div class="example-container w-[300px]">
+        <h2 class="font-semibold">To do</h2>
+        <div cdkDropList #todoList="cdkDropList" [cdkDropListData]="board_lists.todo" [cdkDropListConnectedTo]="[doneList]"
+            class="example-list bg-black/5 p-4" (cdkDropListDropped)="drop($event)">
+            @for (item of board_lists.todo; track item) {
+            <div class="example-box p-5 shadow-md bg-white m-2" cdkDrag>{{item}}</div>
+            }
+        </div>
+    </div>
+    <div class="example-container w-[300px]">
+        <h2 class="font-semibold">Progress</h2>
+        <div cdkDropList #doneList="cdkDropList" [cdkDropListData]="board_lists.progress" [cdkDropListConnectedTo]="[progressList]"
+            class="example-list bg-black/5 p-4" (cdkDropListDropped)="drop($event)">
+            @for (item of board_lists.progress; track item) {
+            <div class="example-box p-5 shadow-md bg-white m-2" cdkDrag>{{item}}</div>
+            }
+        </div>
+    </div>
+    <div class="example-container w-[300px]">
+        <h2 class="font-semibold">Done</h2>
+        <div cdkDropList #progressList="cdkDropList" [cdkDropListData]="board_lists.done" [cdkDropListConnectedTo]="[todoList]"
+            class="example-list bg-black/5 p-4" (cdkDropListDropped)="drop($event)">
+            @for (item of board_lists.done; track item) {
+            <div class="example-box p-5 shadow-md bg-white m-2" cdkDrag>{{item}}</div>
+            }
+        </div>
     </div>
 </div>
+<button class="bg-blue-600 hover:bg-blue-800 text-white font-semibold py-1 px-2 rounded" (click)="add_ticket('gounder')">Add Ticket</button>
 
-<div class="example-container">
-    <h2>Done</h2>
-    <div cdkDropList #doneList="cdkDropList" [cdkDropListData]="done" [cdkDropListConnectedTo]="[todoList]"
-        class="example-list" (cdkDropListDropped)="drop($event)">
-        @for (item of done; track item) {
-        <div class="example-box" cdkDrag>{{item}}</div>
-        }
-    </div>
-</div>
-
-
-<!-- <mat-card class="example-card flex justify-center">
-    <form class=" h-[200px]">
-        <mat-form-field >
-            <mat-label>Outline form field</mat-label>
-            <input matInput placeholder="Placeholder">
-            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-            <mat-hint>Hint</mat-hint>
-        </mat-form-field>
-    </form>
-</mat-card> -->
+<!-- <app-add-ticket-modal></app-add-ticket-modal> -->
