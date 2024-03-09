@@ -21,7 +21,7 @@ import { CommonModule } from '@angular/common';
   imports: [CdkDropList, CdkDrag, AddTicketModalComponent, CommonModule, CdkDropListGroup],
 })
 export class BoardsPageComponent {
-
+  input_card: boolean = false;
   board_lists: { [key: string]: { id: number, title: string }[] } = {
     todo: [
       { id: 1, title: "Tam" },
@@ -67,12 +67,18 @@ export class BoardsPageComponent {
     { id: 20, title: "Averil", status: "Todo" }
   ]
 
+  arun(item: any) {
+    console.log(item);
+    this.input_card = true
+    // item.value.push({ id: item.value.length + 1, title: 'Arun Gounder' })
+  }
+
   // add_ticket(title: any) {
   //   this.board_lists.todo.push({ id: 20, title: "Averil" })
   // }
 
-  add_column(){
-    
+  add_column() {
+
   }
 
   drop(event: any) {
